@@ -1,0 +1,94 @@
+drop database if exists RentalShop;
+CREATE DATABASE RentalShop;
+USE RentalShop;
+
+CREATE TABLE Customer(
+	CustId VARCHAR(20) NOT NULL,
+	username VARCHAR(30)NOT null,
+	password VARCHAR(20) NOT NULL,
+	address VARCHAR(30) NOT NULL,
+	phone_number VARCHAR(10)not null,
+	email VARCHAR(20)NOT null,
+	city VARCHAR(20)NOT null,
+	province VARCHAR(20)NOT null,
+	profile VARCHAR(225)NOT null,
+	font_identity VARCHAR(225) NOT null,
+	back_identity VARCHAR(225) NOT null,
+	font_license VARCHAR(225) NOT null,
+	back_license VARCHAR(225) NOT null,
+	CONSTRAINT PRIMARY KEY (CustId)
+);
+
+
+CREATE TABLE Car(
+	Car_id VARCHAR(20) NOT NULL,
+	brand VARCHAR(50) NOT NULL,
+	car_type VARCHAR(20)NOT NULL,
+	car_img1 VARCHAR(255) NOT NULL,
+	car_img2 VARCHAR(255) NOT NULL,
+	car_img3 VARCHAR(255) NOT NULL,
+	car_img4 VARCHAR(255) NOT NULL,
+	description VARCHAR(20)NOT NULL,
+	passengers int(10)NOT NULL,
+	transmission_type VARCHAR(20)NOT NULL,
+	fuel_type VARCHAR(20)NOT NULL,
+	daily_rate decimal(10,2)NOT NULL,
+	monthly_rate decimal(10,2)NOT NULL,
+	extra_Km decimal(10,2)NOT NULL,
+	Run_Km decimal(10,2)NOT NULL,
+	color varchar(10) NOT NULL,
+	CONSTRAINT PRIMARY KEY (Car_id)
+);
+
+CREATE TABLE Employee(
+emp_nic varchar(30)NOT NULL,
+emp_name  varchar(30)NOT NULL,
+emp_address  varchar(30)NOT NULL,
+emp_email  varchar(30)NOT NULL,
+phone_number  varchar(10)NOT NULL,
+gender varchar (30)NOT NULL,
+birthday varchar (30)NOT NULL,
+emp_post  varchar(10),
+CONSTRAINT PRIMARY KEY(emp_nic)
+);
+
+CREATE TABLE Booking(
+
+	booking_id VARCHAR(20) NOT NULL,
+	CustId VARCHAR(20) NOT NULL,
+	date  VARCHAR(30)NOT NULL,
+	time VARCHAR(30)NOT NULL,
+	CONSTRAINT PRIMARY KEY (booking_id,CustId),
+	CONSTRAINT FOREIGN KEY(CustId) REFERENCES Customer(CustId)ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+
+CREATE TABLE BookingDetail(
+	booking_id VARCHAR(20) NOT NULL,
+	Car_id VARCHAR(20) NOT NULL,
+	emp_nic varchar(30)NOT NULL,
+	pick_up_location varchar(20)NOT NULL,
+    pick_up_time varchar(20)NOT NULL,
+    pick_up_date varchar(20)NOT NULL
+    drop_down_location varchar(20)NOT NULL,
+    drop_down_time varchar(20)NOT NULL,
+    drop_down_date varchar(20)NOT NULL,
+	CONSTRAINT PRIMARY KEY (booking_id,Car_id,emp_nic),
+	CONSTRAINT FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY (Car_id) REFERENCES Car(Car_id)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+		CONSTRAINT FOREIGN KEY (emp_nic) REFERENCES Employee(emp_nic)
+	ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+CREATE TABLE  Login(
+LoginID  int (100)auto_Increment NOT NULL,
+CustId VARCHAR(20) NOT NULL,
+emp_nic varchar(30)NOT NULL,
+LoginTime  varchar(30)NOT NULL,
+LoginStates  varchar(30)NOT NULL,
+CONSTRAINT PRIMARY KEY(LoginID),
+	CONSTRAINT FOREIGN KEY (emp_nic) REFERENCES Employee(emp_nic)ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(CustId) REFERENCES Customer(CustId)ON UPDATE CASCADE ON DELETE CASCADE
+);

@@ -1,0 +1,120 @@
+drop database if exists RentalShop;
+CREATE DATABASE RentalShop;
+USE RentalShop;
+
+CREATE TABLE Customer(
+	CustId VARCHAR(20) NOT NULL,
+	username VARCHAR(30)NOT null,
+	password VARCHAR(20) NOT NULL,
+	address VARCHAR(30) NOT NULL,
+	phone_number VARCHAR(10)not null,
+	email VARCHAR(20)NOT null,
+	city VARCHAR(20)NOT null,
+	province VARCHAR(20)NOT null,
+	profile VARCHAR(225)NOT null,
+	font_identity VARCHAR(225) NOT null,
+	back_identity VARCHAR(225) NOT null,
+	font_license VARCHAR(225) NOT null,
+	back_license VARCHAR(225) NOT null,
+	CONSTRAINT PRIMARY KEY (CustId)
+);
+INSERT INTO Customer VALUES('C008','Hapugala','A.png','B.png','Galle','dilsh@gmail.com','F.png','P.gng','1998','076654334','P.png','Southern Province','Kamal');
+
+
+CREATE TABLE Car(
+	Car_id VARCHAR(20) NOT NULL,
+	brand VARCHAR(50) NOT NULL,
+	car_type VARCHAR(20)NOT NULL,
+	car_img1 VARCHAR(255) NOT NULL,
+	car_img2 VARCHAR(255) NOT NULL,
+	car_img3 VARCHAR(255) NOT NULL,
+	car_img4 VARCHAR(255) NOT NULL,
+	description VARCHAR(20)NOT NULL,
+	passengers int(10)NOT NULL,
+	transmission_type VARCHAR(20)NOT NULL,
+	fuel_type VARCHAR(20)NOT NULL,
+	daily_rate decimal(10,2)NOT NULL,
+	monthly_rate decimal(10,2)NOT NULL,
+	extra_Km decimal(10,2)NOT NULL,
+	Run_Km decimal(10,2)NOT NULL,
+	color varchar(10) NOT NULL,
+	CONSTRAINT PRIMARY KEY (Car_id)
+);
+INSERT INTO Car VALUES('CAR01','Toyota','R.png','D.png','Suzuki',
+'F.png','K.png','Brand New Susuki Car',4,'Manual','Petrol',300.00,5000.00,40.00,40000,'Red');
+INSERT INTO Car VALUES('CAR01','Toyota','R.png','D.png',
+'F.png','K.png','Suzuki','Red',2000.00,'Brand New Susuki Car',300.00,'Petrol',5000.00,4,30000.00,'Manual');
+CREATE TABLE Employee(
+emp_nic varchar(30)NOT NULL,
+emp_name  varchar(30)NOT NULL,
+emp_address  varchar(30)NOT NULL,
+emp_email  varchar(30)NOT NULL,
+phone_number  varchar(10)NOT NULL,
+gender varchar (30)NOT NULL,
+birthday varchar (30)NOT NULL,
+emp_post  varchar(10),
+CONSTRAINT PRIMARY KEY(emp_nic)
+);
+INSERT INTO Employee VALUES('EMP01','DilshanRajika','Colombo','kamal@gmail.com','0766654543','Male','1998-09-23','Driver');
+INSERT INTO Employee VALUES('EMP001','1098-09-03','Nadimala,Dehiwala','dilsh@gmail.com','Dilshan','Driver','Male','0766654543');
+CREATE TABLE Booking(
+
+	booking_id VARCHAR(20) NOT NULL,
+	CustId VARCHAR(20) NOT NULL,
+	date  VARCHAR(30)NOT NULL,
+	time VARCHAR(30)NOT NULL,
+	CONSTRAINT PRIMARY KEY (booking_id,CustId),
+	CONSTRAINT FOREIGN KEY(CustId) REFERENCES Customer(CustId)ON UPDATE CASCADE ON DELETE CASCADE
+);
+INSERT INTO Booking VALUES('B001','C008','','2021-02-03','8:45PM');
+INSERT INTO Booking VALUES('B001','2021-02-03','8:45PM','C008');
+
+CREATE TABLE BookingDetail(
+	booking_id VARCHAR(20) NOT NULL,
+	Car_id VARCHAR(20) NOT NULL,
+	emp_nic varchar(30)NOT NULL,
+	pick_up_location varchar(20)NOT NULL,
+    pick_up_time varchar(20)NOT NULL,
+    pick_up_date varchar(20)NOT NULL
+    drop_down_location varchar(20)NOT NULL,
+    drop_down_time varchar(20)NOT NULL,
+    drop_down_date varchar(20)NOT NULL,
+	CONSTRAINT PRIMARY KEY (booking_id,Car_id,emp_nic),
+	CONSTRAINT FOREIGN KEY (booking_id) REFERENCES Booking(booking_id)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY (Car_id) REFERENCES Car(Car_id)
+	ON UPDATE CASCADE ON DELETE CASCADE,
+		CONSTRAINT FOREIGN KEY (emp_nic) REFERENCES Employee(emp_nic)
+	ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+INSERT INTO BookingDetail VALUES('B001','CAR01','EMP01','Galle','3:00pm','2021-02-03','Colombo','4:00pm','2021-02-03');
+
+INSERT INTO BookingDetail VALUES(1,'B001','CAR01','EMP01','Galle','3:00pm','2021-02-03','Colombo','4:00pm','2021-02-03');
+CREATE TABLE  Login(
+LoginID  int (100)auto_Increment NOT NULL,
+CustId VARCHAR(20) NOT NULL,
+emp_nic varchar(30)NOT NULL,
+LoginTime  varchar(30)NOT NULL,
+LoginStates  varchar(30)NOT NULL,
+CONSTRAINT PRIMARY KEY(LoginID),
+	CONSTRAINT FOREIGN KEY (emp_nic) REFERENCES Employee(emp_nic)ON UPDATE CASCADE ON DELETE CASCADE,
+	CONSTRAINT FOREIGN KEY(CustId) REFERENCES Customer(CustId)ON UPDATE CASCADE ON DELETE CASCADE
+);
+
+INSERT INTO BookingDetail (dropDate,dropLocate,dropTime,pickDate,pickLocate,pickTime,bookingID,carID,empNIC) VALUES('2020-01-02','Galle','4:00pm','2020-01-03','Colombo','8:00am','ORD0002','CAR01','EMP0001');
+
+
+
+
+
+select	c.customerNIC ,c.username,b.bookingid from customer c,booking b where c.customernic=b.customernic && c.customerNIC='C009';
+
+
+
+
+
+
+
+
+

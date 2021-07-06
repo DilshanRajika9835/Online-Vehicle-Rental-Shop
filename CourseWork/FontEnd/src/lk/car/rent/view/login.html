@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Easy Car Rental Pvt(Ltd)</title>
+    <link rel="icon" href="../imgCar/Suzuki_4.png">
+    <link href="../css/Style.css" rel="stylesheet">
+    <link href="../css/singin.css" rel="stylesheet">
+    <link href="../bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="get your own car here come our place and save your time">
+    <meta name="author" content="Dilshan Rajika">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+      <link  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<!-- Wrapper Area -->
+<body id="page">
+
+<div class="wrapper__area" id="wrapper_Area">
+    <!-- Forms Area -->
+    <div class="forms__area">
+        <!-- Login Form -->
+        <form class="login__form" id="loginForm">
+            <!-- Form Title -->
+            <h1 class="form__title">Sign In!</h1>
+            <!-- inputs Groups -->
+            <div class="input__group">
+                <label class="field">
+                    <input type="text" name="username" placeholder="Enter NIC Number" id="loginUsername">
+                </label>
+            </div>
+            <div class="input__group">
+                <label class="field">
+                    <input type="password" name="password" placeholder="Enter Password" id="loginPassword">
+
+                </label>
+
+            </div>
+            <div class="form__actions">
+                <label for="checkboxInput" class="remeber_me">
+                    <input type="checkbox" id="checkboxInput">
+                    <span class="checkmark"></span>
+                    <span>Remember Me</span>
+                </label>
+                <div class="forgot_password">Forgot Password?</div>
+            </div>
+            <!-- Login Button -->
+            <button type="button" class="submit-button" id="btnsignIn">Sign in</button>
+            <!-- Alternate Login -->
+            <div class="alternate-login">
+                <div class="link">
+                    <i class='fa fa-google'></i>
+                    <span>Google</span>
+                </div>
+                <div class="link">
+                    <i class='fa fa-facebook'></i>
+                    <span>Facebook</span>
+                </div>
+            </div>
+        </form>
+        <!-- End Login Form -->
+
+    </div><!-- End Forms Area -->
+
+    <!-- Aside Area -->
+    <div class="aside__area" id="aside_Area">
+        <div class="login__aside-info">
+            <h4 >Hello</h4>
+            <img src="../images/logimimage.png" alt="Image">
+            <p>Enter your personal user name and password login with our page details and start journey with us
+                <button type="button" class="submit-button" data-toggle="modal"
+                        data-target=".bd-example-modal-lg">Sign up</button>
+            </p>
+
+        </div>
+    </div>
+</div>
+<section>
+    <!-- Large modal -->
+    <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg " >
+            <div class="modal-content ">
+                <section class="m-1 container-fluid">
+                    <form>
+                        <div class="form-row">
+                            <!--User Name -->
+                            <div class="form-group col-md-8">
+                                <label for="username">UserName</label>
+                                <input type="text" class="form-control" id="username" placeholder="Dilshan Rajika Withanachchi" required>
+                            </div>
+                            <!--NIC Number -->
+                            <div class="form-group col-md-4">
+                                <label for="nic">NIC NO</label>
+                                <input type="text" class="form-control small" id="nic" placeholder="980654345V" required>
+                            </div>
+                            <!--Address -->
+                            <div class="form-group col-md-12">
+                                <label for="address">Address</label>
+                                <input type="email" class="form-control" id="address" placeholder="Apartment, studio, or floor">
+                            </div>
+                            <!--Email-->
+                                <div class="form-group col-md-12">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" id="email"
+                                           placeholder="dilshanrajitha1098@gmail.com">
+                                </div>
+                                <!--Password-->
+                                <div class="form-group col-md-4">
+                                    <label for="password">Password</label>
+                                    <input type="password" class="form-control" id="password" placeholder="1234567">
+                                </div>
+
+                            <!--Phone number-->
+                            <div class="form-group col-md-4">
+                                <label for="phone_number">Phone Number</label>
+                                <input type="number" class="form-control "  id="phone_number"
+                                       placeholder="(+94)766645873">
+                            </div>
+
+
+                            <!--City-->
+                            <div class="form-group col-md-4">
+                                <label for="city">City</label>
+                                <select id="city" class="form-control">
+                                    <option selected disabled>Choose...</option>
+                                    <option>Galle</option>
+                                    <option>Mathara</option>
+                                    <option>Colombo</option>
+                                </select>
+                            </div>
+                            <!--province-->
+                            <div class="form-group col-md-4">
+                                <label for="province">province</label>
+                                <select id="province" class="form-control">
+                                    <option selected disabled>Choose...</option>
+                                    <option>South Province</option>
+                                    <option>North Province</option>
+                                    <option>West Province</option>
+                                </select>
+                            </div>
+
+                            <!--Customer Profile-->
+                            <div class="form-group col-md-6 ">
+                                <h6 style="color: gray ;font-size: 9px">Choose your profile image
+                                </h6>
+                                <img id="profile_img" src="../images/profile_Img.png"
+                                     class="rounded mx-auto d-block col-md-8 " alt="img">
+                                <div class="btn-file btn btn-primary btn-sm m-1 ">
+                                    <span>Upload</span><input type="file" id="profile" name="chooseFile1"  accept="image/png, image/jpeg" ></div>
+
+                            </div>
+                       <!--------------------------------------------------------------------->
+                            <section class="row justify-content-center">
+                                <!--Customer identity font view-->
+                                <div class="form-group col-md-6">
+                                    <h6 style="color: gray ;font-size: 9px">Choose your Identity Font Side  view
+                                        </h6>
+                                    <img src="../images/id_img.png" class="rounded mx-auto d-block col-md-8"
+                                         alt="" id="id_font_img" >
+                                    <div class="btn-file btn btn-primary btn-sm m-1 ">
+                                        <span>Upload</span><input type="file" id="identity_font" name="chooseFile2"  accept="image/png, image/jpeg" ></div>
+
+                                </div>
+
+                                <!--Customer identity back view-->
+                                <div class="form-group col-md-6">
+                                    <h6 style="color: gray ;font-size: 9px">Choose your Identity Back Side
+                                        </h6>
+                                    <img src="../images/id_img.png" class="rounded mx-auto d-block col-md-8"
+                                         alt="" id="id_back_img">
+                                    <div class="btn-file btn btn-primary btn-sm m-1 " ><span>Upload</span><input type="file" id="identity_back" name="chooseFile3"  accept="image/png, image/jpeg" ></div>
+                                </div>
+
+                            </section>
+                            <!------------------------------------------------------------------------>
+                            <section class="row justify-content-center">
+                                <!--Lichen  font Card img -->
+                                <div class="form-group col-md-6">
+                                    <h6 style="color: gray ;font-size: 9px">Choose your Licensed Card  Font Side  view
+                                    </h6>
+                                    <img  class="rounded mx-auto d-block col-md-8"
+                                         src="../images/license_img.png"
+                                         alt=" " id="licensed_font_img">
+                                    <div class="btn-file btn btn-primary btn-sm m-1 ">
+                                        <span>Upload</span><input type="file" id="lichen_font" name="chooseFile4"
+                                                                  accept="image/png, image/jpeg" ></div>
+
+                                </div>
+                                <!--Lichen Card back img -->
+                                <div class="form-group col-md-6">
+                                    <h6 style="color: gray ;font-size: 9px">Choose your Licensed Card  Back Side
+                                    </h6>
+                                    <img
+                                            src="../images/license_img.png"
+                                            class="rounded mx-auto d-block col-md-8"
+                                         alt="" id="licensed_back_img">
+                                    <div class="btn-file btn btn-primary btn-sm m-1 ">
+                                        <span>Upload</span><input type="file" id="lichen_back" name="chooseFile5"></div>
+                                </div>
+
+                            </section>
+
+
+                        <div class="d-flex justify-content-end align-items-end mt-5">
+                            <button type="button" class="btn btn-danger text-light m-1" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary  text-light m-1" id="SignUP">Sign up</button>
+
+                        </div>
+                        </div>
+
+                    </form>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- End Wrapper Area -->
+<script src="../js/login.js" rel="script"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="../jquery/jquery.min.js" rel="script"></script>
+<script src="../bootstrap/js/bootstrap.bundle.min.js" rel="script"></script>
+
+<script src="../bootstrap/js/bootstrap.min.js"></script>
+
+<script>
+    let formData=new FormData();
+    /*customer profile card font view*/
+    $("#profile").change(function () {
+        let file1 = $("#profile")[0].files[0];
+                let image = document.getElementById("profile_img");
+                let file = this.files[0];
+                    const  reader=new FileReader();
+                    reader.onload=function () {
+                        image.src= reader.result;
+
+                    }
+                    reader.readAsDataURL(file);
+                    formData.append("profile",file1,file1.name);
+
+    });
+
+    /*customer identity card font view*/
+    $("#identity_font").change(function () {
+        let file1 = $("#identity_font")[0].files[0];
+
+                let image = document.getElementById("id_font_img");
+                let file = this.files[0];
+
+                    const  reader=new FileReader();
+                    reader.onload=function () {
+                        image.src= reader.result;
+
+                    }
+                    reader.readAsDataURL(file);
+                    formData.append("font_identity",file1,file1.name);
+
+
+
+    });
+    /*customer identity card back view*/
+    $("#identity_back").change(function () {
+        let file1 = $("#identity_back")[0].files[0];
+
+                let image = document.getElementById("id_back_img");
+                let file = this.files[0];
+
+                    const  reader=new FileReader();
+                    reader.onload=function () {
+                        image.src= reader.result;
+
+                    }
+                    reader.readAsDataURL(file);
+                    formData.append("back_identity",file1,file1.name);
+
+
+
+    });
+    /*customer Lichen card font view*/
+    $("#lichen_font").change(function () {
+        let file1 = $("#lichen_font")[0].files[0];
+
+                let image = document.getElementById("licensed_font_img");
+                let file = this.files[0];
+
+                    const  reader=new FileReader();
+                    reader.onload=function () {
+                        image.src= reader.result;
+                    }
+                    reader.readAsDataURL(file);
+                    formData.append("font_license",file1,file1.name);
+
+
+    });
+    /*customer lichen  card back view*/
+    $("#lichen_back").change(function () {
+        let file1 = $("#lichen_back")[0].files[0];
+
+
+                let image = document.getElementById("licensed_back_img");
+                let file = this.files[0];
+                if(file) {
+                    const reader = new FileReader();
+                    reader.onload = function () {
+                        image.src = reader.result;
+                    }
+                    reader.readAsDataURL(file);
+                    formData.append("back_license", file1, file1.name);
+                }
+
+    });
+
+    /*---------sign up send data page-------------*/
+    $("#city,#province").change(function () {
+        let x = document.getElementById("city").selectedIndex;
+        let y = document.getElementById("city").options;
+        let province = y[x].text;
+        $("#province > option").val(province);
+
+        let a = document.getElementById("city").selectedIndex;
+        let b = document.getElementById("city").options;
+        let city = b[a].text;
+        $("#ordItemCode > option").val(city);
+
+
+    });
+
+
+    $("#SignUP").click(function () {
+        let UserName=$("#username").val();
+        let NIC=$("#nic").val();
+        let Address=$("#address").val();
+        let Email=$("#email").val();
+        let Password=$("#password").val();
+        let PhoneNumber=$("#phone_number").val();
+        let City=$("#city").val();
+        let Province=$("#province").val();
+        formData.append("username",UserName);
+        formData.append("nic",NIC);
+        formData.append("address",Address);
+        formData.append("email",Email);
+        formData.append("password",Password);
+        formData.append("phone_number",PhoneNumber);
+        formData.append("city",City);
+        formData.append("province",Province);
+        $.ajax({
+            url: "http://localhost:8080/BackEnd/customer/register",
+            method:"POST",
+            async:true,
+            mimeType: "multipart/form-data",
+            data:formData,
+            contentType:false,//x-www-form-urlencoded is default
+            processData: false, //auto processing false default true
+            success:function (response,status,xhr) {
+                if(response==="true"){
+                    alert("Register Successfully")
+
+                    }
+            }
+
+        });
+    });
+</script>
+
+<script>
+    let   NIC=/^[0-9]{9}[V]{1}|[0-9]{12}$/;
+    let   password=/^[A-z]{5,8}[0-9]{4}$/;
+
+    $("#loginUsername").on('keydown',function (event) {
+        if(NIC.test($('#loginUsername').val())){
+            $("#loginUsername").css('border','1px solid green');
+            if(event.key==="Enter"){
+                $('#loginPassword').focus();
+            }
+        }else {
+            $("#loginUsername").css('border','1px solid red');
+            if(event.key==="Enter"){
+                $('#loginUsername').focus();
+            }
+        }
+
+    });
+
+    $("#loginPassword").on('keydown',function (event) {
+        if(password.test($('#loginPassword').val())){
+            $("#loginPassword").css('border','1px solid green');
+            if(event.key==="Enter"){
+                $('#signIn').requestFocus();
+            }
+        }else {
+            $("#loginPassword").css('border','1px solid red');
+            if(event.key==="Enter"){
+                $('#loginPassword').focus();
+            }
+        }
+
+    });
+
+
+</script>
+<script>
+
+    $("#btnsignIn").click(function () {
+        let username = $("#loginUsername").val().trim();
+        let password = $("#loginPassword").val().trim();
+        let url_origin=window.location.origin;
+        if(username!=null&&password!=null){
+            switch (username) {
+                case "Driver":{
+                    document.location.href =
+                        url_origin+"/FontEnd/lk/car/rent/view/driver.html?"+password;
+                }break;
+                case "Admin":{
+                    document.location.href =
+                        url_origin+"/FontEnd/lk/car/rent/view/admin.html";
+                }break;
+                default:{
+                    $.ajax({
+
+                        //url: url_origin+"/FontEnd/lk/car/rent/view/home.html",
+                        url:"http://localhost:8080/BackEnd/customer/login",
+                        method:"POST",
+                        contentType: "application/x-www-form-urlencoded",
+                        data: {
+                            nic: username,
+                            password: password
+                        },
+                        success:function (response,status,xhr) {
+                            if(response){
+                                if(response){
+                                    document.location.href =
+                                        url_origin+"/FontEnd/lk/car/rent/view/home.html"+"?"+username+"&"+password+"&"+"get your own car here come our place and save your time";
+                                }
+                            }
+
+                        }
+
+                    });
+                }
+            }
+        }
+
+
+    });
+
+
+</script>
+
+
+</body>
+</html>
